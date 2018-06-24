@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 配置数据源 切记数据库的连接方式应设为UTF-8 否则将出现无法查询中文的情况 -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/xiuqian?characterEncoding=UTF-8"/>
+        <property name="username" value="root"/>
+        <property name="password" value=""/>
+    </bean>
+
+
+    <!--配置SessionFactory-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/xiuqian</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+            </props>
+        </property>
+        <property name="annotatedClasses">
+            <list>
+                <!--<value>com.yyh.bean.Admin</value>-->
+                <value>webback.bean.AdminS</value>
+                <value>webback.bean.User</value>
+                <value>webback.bean.Punish</value>
+                <value>webback.bean.Activity</value>
+                <value>webback.bean.Action</value>
+                <value>webback.bean.Discuss</value>
+                <value>webback.bean.Attention</value>
+                <value>webback.bean.Everysignin</value>
+                <value>webback.bean.Userdopraise</value>
+                <value>webback.bean.Blacklist</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="adminDao" class="webback.dao.AdminDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="adminService" class="webback.service.AdminService">
+        <property name="adminDao" ref="adminDao"/>
+    </bean>
+
+    <bean id="userDao" class="webback.dao.UserDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="userService" class="webback.service.UserService">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+
+    <bean id="activityDao" class="webback.dao.ActivityDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="activityService" class="webback.service.ActivityService">
+        <property name="activityDao" ref="activityDao"/>
+    </bean>
+</beans>

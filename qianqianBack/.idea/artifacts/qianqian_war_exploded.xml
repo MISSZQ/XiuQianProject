@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="qianqian:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/qianqian_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="qianqian/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="qianqian" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Hibernate 5.2.16-5.2.16" />
+          <element id="library" level="project" name="JAX-WS-Glassfish / JAX-WS 2.2 RI / Metro 1.X / JWSDP 2.2" />
+          <element id="library" level="project" name="Spring-4.3.16.RELEASE" />
+          <element id="library" level="project" name="Spring MVC-4.3.16.RELEASE" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

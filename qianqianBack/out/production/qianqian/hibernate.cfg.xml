@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+    <!--数据库连接url设置-->
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/xiuqian</property>
+    <!--数据库驱动配置-->
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <!--数据库用户名配置-->
+    <property name="hibernate.connection.characterEncoding">UTF-8</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
+      <mapping class="webback.bean.AdminS"/>
+    <mapping class="webback.bean.User"/>
+    <mapping class="webback.bean.Activity"/>
+    <mapping class="webback.bean.Punish"/>
+    <mapping class="webback.bean.Action"/>
+    <mapping class="webback.bean.Discuss"/>
+      <mapping class="webback.bean.Attention"/>
+    <mapping class="webback.bean.Blacklist"/>
+  </session-factory>
+</hibernate-configuration>

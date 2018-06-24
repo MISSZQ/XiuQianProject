@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="xiuqian@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="xiuqian">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="BookStore"/>
+    <schema id="4" parent="1" name="Demo"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="sys"/>
+    <table id="9" parent="2" name="action"/>
+    <table id="10" parent="2" name="activity"/>
+    <table id="11" parent="2" name="admins"/>
+    <table id="12" parent="2" name="attention"/>
+    <table id="13" parent="2" name="blacklist"/>
+    <table id="14" parent="2" name="discuss"/>
+    <table id="15" parent="2" name="everysignin"/>
+    <table id="16" parent="2" name="punishtable"/>
+    <table id="17" parent="2" name="user"/>
+    <table id="18" parent="2" name="userdopraise"/>
+    <column id="19" parent="9" name="actionId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="20" parent="9" name="userId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="9" name="activityId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="9" name="signInTime">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <index id="23" parent="9" name="activityIda_idx">
+      <ColNames>activityId</ColNames>
+    </index>
+    <index id="24" parent="9" name="userId_idx">
+      <ColNames>userId</ColNames>
+    </index>
+    <key id="25" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>actionId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="26" parent="9" name="userIda">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>xiuqian</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>userId</RefColNames>
+    </foreign-key>
+    <foreign-key id="27" parent="9" name="activityIda">
+      <ColNames>activityId</ColNames>
+      <RefSchemaName>xiuqian</RefSchemaName>
+      <RefTableName>activity</RefTableName>
+      <RefColNames>activityId</RefColNames>
+    </foreign-key>
+    <column id="28" parent="10" name="activityId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="29" parent="10" name="activityTitle">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="10" name="activityIntroduce">
+      <Position>3</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;这个发起人很懒，啥也没有写。&apos;</DefaultExpression>
+    </column>
+    <column id="31" parent="10" name="activityImageUrl">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="10" name="activityStartTime">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="10" name="activityEndTime">
+      <Position>6</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="10" name="activityModel">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="35" parent="10" name="activityUserNumber">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="36" parent="10" name="activityStartUser">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="37" parent="10" name="activityAttendNum">
+      <Position>10</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="38" parent="10" name="punishId">
+      <Position>11</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="39" parent="10" name="activityIsPrivate">
+      <Position>12</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <index id="40" parent="10" name="activityStartUser_idx">
+      <ColNames>activityStartUser</ColNames>
+    </index>
+    <index id="41" parent="10" name="punishId_idx">
+      <ColNames>punishId</ColNames>
+    </index>
+    <key id="42" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>activityId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="43" parent="10" name="activityStartUser">
+      <ColNames>activityStartUser</ColNames>
+      <RefSchemaName>xiuqian</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>userId</RefColNames>
+    </foreign-key>
+    <foreign-key id="44" parent="10" name="punishId">
+      <ColNames>punishId</ColNames>
+      <RefSchemaName>xiuqian</RefSchemaName>
+      <RefTableName>punishtable</RefTableName>
+      <RefColNames>punishid</RefColNames>
+    </foreign-key>
+    <column id="45" parent="11" name="adminId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="46" parent="11" name="adminName">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="11" name="adminPassword">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="48" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>adminId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="49" parent="12" name="attentionId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="50" parent="12" name="userId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="12" name="attentionuserId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="52" parent="12" name="userId_idx">
+      <ColNames>userId</ColNames>
+    </index>
+    <key id="53" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>attentionId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="54" parent="12" name="attentionuserId">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>xiuqian</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>userId</RefColNames>
+    </foreign-key>
+    <foreign-key id="55" parent="12" name="userId">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>xiuqian</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>userId</RefColNames>
+    </foreign-key>
+    <column id="56" parent="13" name="blacklistId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="57" parent="13" name="userId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="13" name="activityId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="59" parent="13" name="dfg">
+      <ColNames>activityId</ColNames>
+    </index>
+    <index id="60" parent="13" name="zxc">
+      <ColNames>userId</ColNames>
+    </index>
+    <key id="61" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>blacklistId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="62" parent="13" name="zxc">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>xiuqian</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>userId</RefColNames>
+    </foreign-key>
+    <foreign-key id="63" parent="13" name="dfg">
+      <ColNames>activityId</ColNames>
+      <RefSchemaName>xiuqian</RefSchemaName>
+      <RefTableName>activity</RefTableName>
+      <RefColNames>activityId</RefColNames>
+    </foreign-key>
+    <column id="64" parent="14" name="discussId">
+      <Position>1</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="65" parent="14" name="actionId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="66" parent="14" name="discussIntroduce">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="67" parent="14" name="discussImageUrl">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="68" parent="14" name="discussPraise">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="69" parent="14" name="discussTime">
+      <Position>6</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <index id="70" parent="14" name="actionId_idx">
+      <ColNames>actionId</ColNames>
+    </index>
+    <key id="71" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>discussId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="72" parent="14" name="actionId">
+      <ColNames>actionId</ColNames>
+      <RefSchemaName>xiuqian</RefSchemaName>
+      <RefTableName>action</RefTableName>
+      <RefColNames>actionId</RefColNames>
+    </foreign-key>
+    <column id="73" parent="15" name="signinId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="74" parent="15" name="userId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="75" parent="15" name="activityId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="76" parent="15" name="signinDate">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="77" parent="15" name="succeedSignin">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <index id="78" parent="15" name="xxx">
+      <ColNames>activityId</ColNames>
+    </index>
+    <index id="79" parent="15" name="zzz">
+      <ColNames>userId</ColNames>
+    </index>
+    <key id="80" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>signinId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="81" parent="15" name="zzz">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>xiuqian</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>userId</RefColNames>
+    </foreign-key>
+    <foreign-key id="82" parent="15" name="xxx">
+      <ColNames>activityId</ColNames>
+      <RefSchemaName>xiuqian</RefSchemaName>
+      <RefTableName>activity</RefTableName>
+      <RefColNames>activityId</RefColNames>
+    </foreign-key>
+    <column id="83" parent="16" name="punishId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="84" parent="16" name="punishName">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="85" parent="16" name="punishIntroduce">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <key id="86" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>punishId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="87" parent="17" name="userId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="88" parent="17" name="userNum">
+      <Position>2</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="89" parent="17" name="userName">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="90" parent="17" name="userPassword">
+      <Position>4</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="91" parent="17" name="userEmail">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="92" parent="17" name="userImageUrl">
+      <Position>6</Position>
+      <DataType>varchar(45)|0</DataType>
+      <DefaultExpression>&apos;/Back/images/rng.png&apos;</DefaultExpression>
+    </column>
+    <column id="93" parent="17" name="userIntroduce">
+      <Position>7</Position>
+      <DataType>varchar(45)|0</DataType>
+      <DefaultExpression>&apos;一个小小萌新&apos;</DefaultExpression>
+    </column>
+    <column id="94" parent="17" name="userPhone">
+      <Position>8</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="95" parent="17" name="userId_UNIQUE">
+      <ColNames>userId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="96" parent="17" name="userNum_UNIQUE">
+      <ColNames>userNum</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="97" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="98" parent="17" name="userId_UNIQUE">
+      <ColNames>userId</ColNames>
+      <UnderlyingIndexName>userId_UNIQUE</UnderlyingIndexName>
+    </key>
+    <key id="99" parent="17" name="userNum_UNIQUE">
+      <ColNames>userNum</ColNames>
+      <UnderlyingIndexName>userNum_UNIQUE</UnderlyingIndexName>
+    </key>
+    <column id="100" parent="18" name="userPraiseId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="101" parent="18" name="userId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="102" parent="18" name="discussId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="103" parent="18" name="doPraise">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <index id="104" parent="18" name="mmm">
+      <ColNames>discussId</ColNames>
+    </index>
+    <index id="105" parent="18" name="nnn">
+      <ColNames>userId</ColNames>
+    </index>
+    <key id="106" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userPraiseId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="107" parent="18" name="nnn">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>xiuqian</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>userId</RefColNames>
+    </foreign-key>
+    <foreign-key id="108" parent="18" name="mmm">
+      <ColNames>discussId</ColNames>
+      <RefSchemaName>xiuqian</RefSchemaName>
+      <RefTableName>discuss</RefTableName>
+      <RefColNames>discussId</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
