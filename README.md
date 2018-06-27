@@ -1,6 +1,6 @@
 #Xiu签
 
-* [Github](https://github.com/MISSZQ/XiuQian)
+* [Github](https://github.com/MISSZQ/XiuQianProject)
 * [HostedRedmine](http://10.7.1.5/projects/android_xiu/wiki)
 
 ### 项目简介
